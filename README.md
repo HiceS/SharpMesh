@@ -1,4 +1,4 @@
-# Particular
+# Particular ![.NET Core](https://github.com/HiceS/Particular/workflows/.NET%20Core/badge.svg)
 Library for generating convex decomposition for 3D meshes, written and supplied in .NET
 
 ## Building
