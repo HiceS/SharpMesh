@@ -134,3 +134,7 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+
+# ______________________________ Shawn Hice Modified Version ____________________________________ #
+.vs
+.vs/*
