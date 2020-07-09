@@ -138,3 +138,7 @@ _NCrunch*
 # ______________________________ Shawn Hice Modified Version ____________________________________ #
 .vs
 .vs/*
+
+# Rider
+.idea
+.idea/*

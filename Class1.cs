@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Patricular
+namespace SharpMesh
 {
     public class Class1
     {
