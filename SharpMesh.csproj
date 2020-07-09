@@ -5,7 +5,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="NUnit" Version="3.12.0" />
+      <Compile Remove="SharpMeshTests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="SharpMeshTests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="SharpMeshTests\**" />
     </ItemGroup>
 
 </Project>
