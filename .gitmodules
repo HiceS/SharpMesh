@@ -1,0 +1,3 @@
+[submodule "SharpMeshUnityPlugin"]
+	path = SharpMeshUnityPlugin
+	url = git@github.com:Tattomoosa/SharpMeshUnityPlugin.git

@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpMesh", "SharpMesh.csproj", "{40334F9E-FDE8-4A8B-8433-F3AE222CB2E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpMeshTests", "SharpMeshTests\SharpMeshTests.csproj", "{49AFF547-406A-408D-8F0A-09F8EA336F10}"
@@ -18,5 +21,11 @@ Global
 		{49AFF547-406A-408D-8F0A-09F8EA336F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49AFF547-406A-408D-8F0A-09F8EA336F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49AFF547-406A-408D-8F0A-09F8EA336F10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06C7A97F-2396-4E86-A3F7-B4A3AA92E15B}
 	EndGlobalSection
 EndGlobal
