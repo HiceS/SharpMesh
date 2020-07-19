@@ -1,49 +1,60 @@
 SharpMesh(L,M,r)
-1   i = 0
+    i = 0
+
 //initialize the boundaries of x, y, and z to 0
-2   lowX = L[i].x
-3   highX = L[i].x
-4   lowY = L[i].y
-5   highY = L[i].y
-6   lowZ = L[i].z
-7   highZ = L[i].z
+
+    lowX = L[i].x
+    highX = L[i].x
+    lowY = L[i].y
+    highY = L[i].y
+    lowZ = L[i].z
+    highZ = L[i].z
+
 //determine the actual boundaries x, y, and z
-8   while i < sizeof L
-9       if L[i].x >= lowX
-10          if L[i].x > highX
-11              highX = L[i].x
-12      else
-13          lowX = L[i].x
-14      if L[i].y >= lowY
-15          if L[i].y > highY
-16              highY = L[i].y
-17      else
-18          lowY = L[i].y
-19      if L[i].z >= lowZ
-20          if L[i].z > highZ
-21              highZ = L[i].z
-22      else
-23          lowZ = L[i].z
+
+    while i < sizeof L
+        if L[i].x >= lowX
+            if L[i].x > highX
+                highX = L[i].x
+        else
+            lowX = L[i].x
+        if L[i].y >= lowY
+            if L[i].y > highY
+                highY = L[i].y
+        else
+            lowY = L[i].y
+        if L[i].z >= lowZ
+            if L[i].z > highZ
+                highZ = L[i].z
+        else
+            lowZ = L[i].z
 //scale each boundary based on the resolution r
-24  lowX *= r
-25  highX *= r
-26  lowY *= r
-27  highy *= r
-28  lowZ *= r
-29  highZ *= r
+
+    lowX *= r
+    highX *= r
+    lowY *= r
+    highy *= r
+    lowZ *= r
+    highZ *= r
+
 //set the length of each side
-30  lengthX = highX - lowX
-31  lengthY = highY - lowY
-32  lengthZ = highZ - lowZ
+
+    lengthX = highX - lowX
+    lengthY = highY - lowY
+    lengthZ = highZ - lowZ
     volume = lengthX * lengthY * lengthZ
+
 //initialize the new mesh library M to the volume of the smallest three dimensional quadrilateral that will fit the shell
-33  M = new List[volume][8]
+
+    M = new List[volume][8]
+
 //each index i of M represents a cube with 8 points connecting sides of one index length
 //initialize the three dimensional quadrilateral mesh
-34  i = 0
-35  for a = lowX to highX
-36      for b = lowY to highY
-37          for c = lowZ to highZ
+
+    i = 0
+    for a = lowX to highX
+        for b = lowY to highY
+            for c = lowZ to highZ
                 M[i][0].x = a
                 M[i][0].y = b
                 M[i][0].z = c
@@ -68,10 +79,13 @@ SharpMesh(L,M,r)
                 M[i][7].x = a
                 M[i][7].y = b + 1
                 M[i][7].z = c + 1
-41              i++
+                i++
+
 //disintegrate three dimensional mesh to sharp mesh
 //do each side one at a time starting on every point on the plane and progressing toward the opposite side, removing elements until either out of points or a vector in l is reached.
+
 //side 1 (1,2,5,6)
+
 for c = lowZ to highZ
     for b = lowY to highY
         for a = lowX to highX
@@ -89,7 +103,9 @@ for c = lowZ to highZ
                     break
              if found = true
                 break
+
 //side 2 (2,3,6,7)
+
 for c = lowZ to highZ
     for b = lowX to highX
         for a = highY to lowY
@@ -107,7 +123,9 @@ for c = lowZ to highZ
                     break
              if found = true
                 break
+
 //side 3 (3,4,7,8)
+
 for c = lowZ to highZ
     for b = highY to lowY
         for a = highX to lowX
@@ -125,7 +143,9 @@ for c = lowZ to highZ
                     break
              if found = true
                 break
+
 //side 4 (6,1,8,5)
+
 for c = lowZ to highZ
     for b = highX to lowX
         for a = lowY to highY
@@ -143,7 +163,9 @@ for c = lowZ to highZ
                     break
              if found = true
                 break
+
 //side 5 (1,4,2,3)
+
 for c = lowY to highY
     for b = lowX to highX
         for a = lowZ to highZ
@@ -161,7 +183,9 @@ for c = lowY to highY
                     break
              if found = true
                 break
+
 //side 6 (6,7,5,8)
+
 for c = highY to lowY
     for b = lowX to highX
         for a = highZ to lowZ
