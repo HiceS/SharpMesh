@@ -40,7 +40,7 @@ namespace SharpMeshTests
         public void Mesh_test()
         {
             // sample Vector of order 3
-            var v1 = new Vector<float>(new float[] {1.0f, 2.0f, 3.0f});
+            var v1 = new Vector<float>(new[] {1.0f, 2.0f, 3.0f});
 
             // default constructor
             var mesh = new Mesh<float>();
@@ -61,7 +61,7 @@ namespace SharpMeshTests
         public void Decomposition_Test()
         {
             // sample Vector of order 3
-            var v1 = new Vector<float>(new float[] {1.0f, 2.0f, 3.0f});
+            var v1 = new Vector<float>(new[] {1.0f, 2.0f, 3.0f});
 
             // default constructor
             var mesh = new Mesh<float>();
@@ -74,10 +74,11 @@ namespace SharpMeshTests
             var res = new Voxel();
             res.Decompose(mesh);
             
-            Assert.AreEqual(mesh.Vertices[0].X, mesh.Vertices[1].X);
-            
             // Should print out some interesting combinations of decomps.
             Console.WriteLine(res);
+            
+            Assert.AreEqual(mesh.Vertices[0].X, mesh.Vertices[1].X);
+            
             
         }
     }

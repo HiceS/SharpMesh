@@ -87,15 +87,15 @@ namespace SharpMesh.Data
         /// TODO: add a null check.
         /// </summary>
         /// <param name="arr"></param>
-        public Vector(ICollection<T> arr)
+        public Vector(IList<T> arr)
         {
             // this just copies by reference instead of creating a new object
             // MEM COPY
-            // _pointList = arr;
+            _pointList = arr;
             
             // otherwise use the following
             // SHALLOW COPY
-            _pointList = new List<T>(arr);
+            // _pointList = new List<T>(arr);
             
             _order = arr.Count;
         }

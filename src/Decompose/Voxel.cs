@@ -10,7 +10,7 @@ namespace SharpMesh.Decompose
     /// </summary>
     internal class VoxelFunction : DecomposerFunction
     {
-        public static void Map(in Mesh<float> data)
+        public static void Map(Mesh<float> data)
         {
             if (data.Vertices[0] == null) return;
             
@@ -27,11 +27,11 @@ namespace SharpMesh.Decompose
 
     internal class DensityFunction : DecomposerFunction
     {
-        public static void Map(in Mesh<float> data)
+        public static void Map(Mesh<float> data)
         {
             if (data.Vertices[0] == null) return;
             
-            data.Vertices.Add(new Vector<float>(new float[] {1.0f, 1.0f, 1.0f}));
+            data.Vertices.Add(new Vector<float>(new[] {1.0f, 1.0f, 1.0f}));
             
             data.Vertices[1].X = data.Vertices[0].X;
             data.Vertices[1].Y += data.Vertices[0].Y;
@@ -54,7 +54,7 @@ namespace SharpMesh.Decompose
         {
             try
             {
-                if (mesh.Vertices.GetType().GetTypeInfo().GenericTypeArguments[0] == typeof(float))
+                if (mesh.Vertices[0].GetType().GetTypeInfo().GenericTypeArguments[0] == typeof(float))
                 {
                     // The reason to do this would be if we wanted to for instance print out all of the function names to the user.
                     Functions.Add(new VoxelFunction());

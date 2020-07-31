@@ -9,12 +9,10 @@ namespace SharpMesh.Decompose
     /// </summary>
     public abstract class Decomposer
     {
-        private readonly List<DecomposerFunction> _functions = new List<DecomposerFunction>();
-
         /// <summary>
         /// List of Functions that are applied as a part of this decomposition.
         /// </summary>
-        public List<DecomposerFunction> Functions => _functions;
+        protected List<DecomposerFunction> Functions { get; } = new List<DecomposerFunction>();
 
         // Removing this for now to remove unneeded generic typing
 /*
