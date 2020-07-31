@@ -21,27 +21,38 @@ namespace SharpMesh.Data
         public T this[int index]
         {
             get => _pointList[index];
-
             set => _pointList[index] = value;
         }
 
         /// <summary>
         /// X coordinate
         /// </summary>
-        public T X => _pointList[0];
-        
+        public T X
+        {
+            get => _pointList[0];
+            set => _pointList[0] = value;
+        }
+
         /// <summary>
         /// Y coordinate
         /// Vector2 item. - 2D graphics vertices
         /// </summary>
-        public T Y => _pointList[1];
-        
+        public T Y
+        {
+            get => _pointList[1];
+            set => _pointList[1] = value;
+        }
+
         /// <summary>
         /// Z coordinate
         /// Vector3 item. - 3D graphics vertices
         /// </summary>
-        public T Z => _pointList[2];
-        
+        public T Z
+        {
+            get => _pointList[2];
+            set => _pointList[2] = value;
+        }
+
         /// <summary>
         /// W coordinate
         /// Vector4 item. - for extra attributes
