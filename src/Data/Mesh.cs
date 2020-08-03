@@ -12,7 +12,7 @@ namespace SharpMesh.Data
         /// vertices, world positions
         /// TODO: does set copy the array or the references to the previous array?
         /// </summary>
-        public List<Vector<T>> Vertices { get; private set; }
+        public List<Vector<T>> Vertices { get; }
         
         /// <summary>
         /// triangles that correspond to vertices positions.
@@ -51,4 +51,9 @@ namespace SharpMesh.Data
             Triangles = new List<int>(mesh.Triangles);
         }
     }
+
+    /// <summary>
+    /// Mesh float Default type without generics.
+    /// </summary>
+    public class Mesh : Mesh<float> { }
 }

@@ -6,7 +6,7 @@ using SharpMesh.Data;
 namespace SharpMesh.Decompose
 {
     /// <summary>
-    /// Primitive Voxel Decomposition Function
+    /// Primitive VoxelDecomposer Decomposition Function
     /// </summary>
     internal class VoxelFunction : DecomposerFunction
     {
@@ -45,10 +45,10 @@ namespace SharpMesh.Decompose
     }
 
     /// <summary>
-    /// Voxel Decomposition Concrete Factory.
-    /// usage: new Voxel().Decompose(mesh);
+    /// VoxelDecomposer Decomposition Concrete Factory.
+    /// usage: new VoxelDecomposer().Decompose(mesh);
     /// </summary>
-    public class Voxel : Decomposer
+    public class VoxelDecomposer : Decomposer
     {
         public override bool Decompose<T>(in Mesh<T> mesh)
         {

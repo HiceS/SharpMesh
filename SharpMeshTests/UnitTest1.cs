@@ -13,6 +13,12 @@ namespace SharpMeshTests
         {
             var v1 = new Vector<float>(new[] {1.0f, 2.0f, 3.0f});
             
+            var v3 = new Vector(new[] {1.0f, 2.0f, 3.0f});
+            
+            var mesh_new = new Mesh();
+            mesh_new.Vertices.Add(v3);
+
+
             var x = v1.X;
             var y = v1.Y;
             var z = v1.Z;
@@ -71,7 +77,7 @@ namespace SharpMeshTests
             mesh.Triangles.Add(1);
             
             // This will take in mesh and use the concrete factory to modify the internal Triangles and Vertices
-            var res = new Voxel();
+            var res = new VoxelDecomposer();
             res.Decompose(mesh);
             
             // Should print out some interesting combinations of decomps.

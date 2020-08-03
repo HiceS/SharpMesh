@@ -129,4 +129,16 @@ namespace SharpMesh.Data
             return _pointList.GetEnumerator();
         }
     }
+
+    /// <summary>
+    /// Default Vector with the float type
+    /// </summary>
+    public class Vector : Vector<float>
+    {
+        /// <summary>
+        /// Constructor that takes a float list and creates a base Vector from it.
+        /// </summary>
+        /// <param name="list"></param>
+        public Vector(IList<float> list) : base(list) { }
+    }
 }
