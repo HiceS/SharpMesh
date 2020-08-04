@@ -1,6 +1,8 @@
 using System;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using SharpMesh.Data;
+using SharpMesh.Decomposer.Voxel;
 
 namespace SharpMeshTests
 {
@@ -10,8 +12,14 @@ namespace SharpMeshTests
         [Test]
         public void Vector_test()
         {
-            var v1 = new Vector<float>(new float[] {1.0f, 2.0f, 3.0f});
+            var v1 = new Vector<float>(new[] {1.0f, 2.0f, 3.0f});
             
+            var v3 = new Vector(new[] {1.0f, 2.0f, 3.0f});
+            
+            var mesh_new = new Mesh();
+            mesh_new.Vertices.Add(v3);
+
+
             var x = v1.X;
             var y = v1.Y;
             var z = v1.Z;
@@ -39,7 +47,7 @@ namespace SharpMeshTests
         public void Mesh_test()
         {
             // sample Vector of order 3
-            var v1 = new Vector<float>(new float[] {1.0f, 2.0f, 3.0f});
+            var v1 = new Vector<float>(new[] {1.0f, 2.0f, 3.0f});
 
             // default constructor
             var mesh = new Mesh<float>();
@@ -54,6 +62,26 @@ namespace SharpMeshTests
             var mesh2 = new Mesh<float>(mesh);
             
             Assert.AreEqual(mesh2.Order, mesh.Vertices[0].Order);
+        }
+        
+        [Test]
+        public void Decomposition_Test()
+        {
+            // sample Vector of order 3
+            var v1 = new Vector<float>(new[] {1.0f, 2.0f, 3.0f});
+
+            // default constructor
+            var mesh = new Mesh<float>();
+
+            var options = new VoxelOptions(precision: 1.0f, timeout: 20, voxelShape: BaseShape.Box);
+
+            var decompTask = new VoxelDecomposer(mesh: mesh, options).RunAsync();
+
+            // Test Properties
+            mesh.Vertices.Add(v1);
+            mesh.Triangles.Add(1);
+            
+            Assert.Pass();
         }
     }
 }
