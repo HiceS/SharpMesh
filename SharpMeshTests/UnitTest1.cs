@@ -1,7 +1,8 @@
 using System;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using SharpMesh.Data;
-using SharpMesh.Decompose;
+using SharpMesh.Decomposer.Voxel;
 
 namespace SharpMeshTests
 {
@@ -71,21 +72,16 @@ namespace SharpMeshTests
 
             // default constructor
             var mesh = new Mesh<float>();
-            
+
+            var options = new VoxelOptions(precision: 1.0f, timeout: 20, voxelShape: BaseShape.Box);
+
+            var decompTask = new VoxelDecomposer(mesh: mesh, options).RunAsync();
+
             // Test Properties
             mesh.Vertices.Add(v1);
             mesh.Triangles.Add(1);
             
-            // This will take in mesh and use the concrete factory to modify the internal Triangles and Vertices
-            var res = new VoxelDecomposer();
-            res.Decompose(mesh);
-            
-            // Should print out some interesting combinations of decomps.
-            Console.WriteLine(res);
-            
-            Assert.AreEqual(mesh.Vertices[0].X, mesh.Vertices[1].X);
-            
-            
+            Assert.Pass();
         }
     }
 }
