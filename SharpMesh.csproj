@@ -7,16 +7,19 @@
     <ItemGroup>
       <Compile Remove="SharpMeshTests\**" />
       <Compile Remove="SharpMeshUnityPlugin\**" />
+      <Compile Remove="OBJTester\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="SharpMeshTests\**" />
       <EmbeddedResource Remove="SharpMeshUnityPlugin\**" />
+      <EmbeddedResource Remove="OBJTester\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="SharpMeshTests\**" />
       <None Remove="SharpMeshUnityPlugin\**" />
+      <None Remove="OBJTester\**" />
     </ItemGroup>
 
 </Project>
