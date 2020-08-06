@@ -101,6 +101,42 @@ namespace SharpMesh.Data
         }
         
         /// <summary>
+        /// Vector3 Constructor with X, Y, Z
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        public Vector(T x, T y, T z)
+        {
+            // this just copies by reference instead of creating a new object
+            // MEM COPY
+            _pointList = new List<T> {x, y, z};
+
+            // otherwise use the following
+            // SHALLOW COPY
+            // _pointList = new List<T>(arr);
+            _order = _pointList.Count;
+        }
+        
+        /// <summary>
+        /// Vector2 Constructor with just a X, Y
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public Vector(T x, T y)
+        {
+            // this just copies by reference instead of creating a new object
+            // MEM COPY
+            _pointList = new List<T> {x, y};
+
+            // otherwise use the following
+            // SHALLOW COPY
+            // _pointList = new List<T>(arr);
+            _order = _pointList.Count;
+        }
+
+        
+        /// <summary>
         /// Constructor that will create a Vector without any initial data.
         /// </summary>
         public Vector()
@@ -140,5 +176,20 @@ namespace SharpMesh.Data
         /// </summary>
         /// <param name="list"></param>
         public Vector(IList<float> list) : base(list) { }
+        
+        /// <summary>
+        /// Construct a Vector3 with a float data
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        public Vector(float x, float y, float z) : base(x, y, z) { }
+        
+        /// <summary>
+        /// Construct a Vector2 with float data
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public Vector(float x, float y) : base(x, y) { }
     }
 }
