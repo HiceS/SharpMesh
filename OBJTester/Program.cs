@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using SharpMesh;
 
 using ObjLoader.Loader.Loaders;
 using SharpMesh.Data;
 
 namespace OBJTester
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
@@ -62,7 +60,7 @@ namespace OBJTester
             Console.WriteLine(decomped);
         }
 
-        static List<Mesh> Decompose(Mesh mesh)
+        private static List<Mesh> Decompose(Mesh mesh)
         {
             return null;
         }

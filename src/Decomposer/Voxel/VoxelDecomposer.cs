@@ -45,6 +45,19 @@ namespace SharpMesh.Decomposer.Voxel
             return new DecomposerResult();
         }
 
+        /// <summary>
+        /// This is the synchronous section of the compute.
+        ///
+        /// Just implement this to start.
+        /// </summary>
+        /// <param name="mesh"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        private static DecomposerResult ComputeSync(Mesh<float> mesh, VoxelOptions options)
+        {
+            return new DecomposerResult();
+        }
+
         public override Task<DecomposerResult> RunAsync()
         {
             // This is what actually runs the Task assigned.

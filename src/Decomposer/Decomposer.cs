@@ -19,7 +19,7 @@ namespace SharpMesh.Decomposer
         /// The result from the finished simulation.
         /// Check against this for the various properties of a finished decomposition.
         /// </summary>
-        public Task<DecomposerResult> Result;
+        protected Task<DecomposerResult> Result;
 
         /// <summary>
         /// In order to cancel the compute.
