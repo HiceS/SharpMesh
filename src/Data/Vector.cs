@@ -164,6 +164,15 @@ namespace SharpMesh.Data
         {
             return _pointList.GetEnumerator();
         }
+
+        /// <summary>
+        /// To string Override to pretty printing.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"Vector({this.Order})\n\t- X: {X}\n\t- Y: {Y}\n\t- Z: {Z}";
+        }
     }
 
     /// <summary>

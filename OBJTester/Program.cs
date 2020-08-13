@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 using ObjLoader.Loader.Loaders;
 using SharpMesh.Data;
+using SharpMesh.Decomposer.Voxel;
 
 namespace OBJTester
 {
@@ -62,6 +64,8 @@ namespace OBJTester
 
         private static List<Mesh> Decompose(Mesh mesh)
         {
+            var decomposer = new VoxelDecomposer(mesh, new VoxelOptions(0.1f, debug: true));
+            decomposer.Run();
             return null;
         }
     }

@@ -9,7 +9,7 @@ namespace SharpMesh.Decomposer
     internal static class FindBounds
     {
         // To find the bounding
-        static Vector VectorBounds(IEnumerable<Vector> verts)
+        internal static Vector VectorBounds(IEnumerable<Vector<float>> verts)
         {
             var temp = new Vector(0.0f, 0.0f, 0.0f);
             

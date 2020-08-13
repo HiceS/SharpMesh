@@ -55,6 +55,17 @@ namespace SharpMesh.Decomposer.Voxel
         /// <returns></returns>
         private static DecomposerResult ComputeSync(Mesh<float> mesh, VoxelOptions options)
         {
+            var bounds = FindBounds.VectorBounds(mesh.Vertices);
+
+            if (options.Debug)
+            {
+                Console.WriteLine("Starting Decomposition ------ \n");
+                Console.WriteLine($"\t -Size : {options.Size}");
+                Console.WriteLine($"\t -Shape : {options.VoxelShape.ToString()}");
+                // Debug output could be part of the voxel options
+                Console.WriteLine($"\t -Bounds: {bounds}");
+            }
+            
             return new DecomposerResult();
         }
 
@@ -70,7 +81,7 @@ namespace SharpMesh.Decomposer.Voxel
         public override DecomposerResult Run()
         {
             // This would mean it's not implemented yet.
-            throw new NotImplementedException();
+            return ComputeSync(Mesh, Options);
         }
     }
 }
