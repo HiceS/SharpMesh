@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using SharpMesh.Data;
 
@@ -65,8 +66,20 @@ namespace SharpMesh.Decomposer.Voxel
                 // Debug output could be part of the voxel options
                 Console.WriteLine($"\t -Bounds: {bounds}");
             }
-            
-            return new DecomposerResult();
+
+            // test for now
+            var result = new DecomposerResult
+            {
+                Mesh = new List<Mesh<float>>
+                {
+                    new BoxMesh(new Vector(0, 2, 0)),
+                    new BoxMesh(new Vector(0, 3, 0)),
+                    new BoxMesh(new Vector(0, 4, 0)),
+                },
+                FinishedWithError = false
+            };
+
+            return result;
         }
 
         public override Task<DecomposerResult> RunAsync()

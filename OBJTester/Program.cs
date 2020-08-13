@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 
 using ObjLoader.Loader.Loaders;
@@ -65,7 +64,8 @@ namespace OBJTester
         private static List<Mesh> Decompose(Mesh mesh)
         {
             var decomposer = new VoxelDecomposer(mesh, new VoxelOptions(0.1f, debug: true));
-            decomposer.Run();
+            var result = decomposer.Run();
+            Console.WriteLine(result.Mesh[0]);
             return null;
         }
     }

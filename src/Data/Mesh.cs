@@ -12,13 +12,13 @@ namespace SharpMesh.Data
         /// vertices, world positions
         /// TODO: does set copy the array or the references to the previous array?
         /// </summary>
-        public List<Vector<T>> Vertices { get; set; }
+        public List<Vector<T>> Vertices { get; protected set; }
         
         /// <summary>
         /// triangles that correspond to vertices positions.
         /// TODO: does set copy the array or the references to the previous array?
         /// </summary>
-        public List<int> Triangles { get; private set; }
+        public List<int> Triangles { get; protected set; }
 
         /// <summary>
         /// Returns order of World Space
@@ -49,6 +49,24 @@ namespace SharpMesh.Data
             // SHALLOW COPY - can reorder but the elements are still referenced via memory.
             Vertices = new List<Vector<T>>(mesh.Vertices);
             Triangles = new List<int>(mesh.Triangles);
+        }
+
+        public override string ToString()
+        {
+            var result = "Mesh:\n";
+            result += $"- Vertices ({Vertices.Count * 3}):\n";
+            foreach (var vertex in Vertices)
+            {
+                result += $"  - [{vertex.Order}] - {vertex.ToString()}\n";
+            }
+
+            result += $"- Faces ({Triangles.Count / 3}):\n";
+            for (var t = 0; t < Triangles.Count; t += 3)
+            {
+                result += $"  - [{t+1}] - {Triangles[t]} {Triangles[t+1]} {Triangles[t+2]}\n";
+            }
+            
+            return result;
         }
     }
 
