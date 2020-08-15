@@ -6,6 +6,22 @@ Library for generating convex decomposition for 3D meshes, written and supplied 
 1. ` dotnet restore `
 2. ` dotnet build --release `
 
+## Unity Plugin
+
+To use the Unity plugin, make sure to recurse submodules. If you haven't cloned yet:
+
+```
+$ git clone --recurse-submodules https://github.com/HiceS/SharpMesh
+```
+
+Otherwise:
+
+```
+$ git submodule update --init --recursive
+```
+
+Then read SharpMeshUnityPlugin/README.md
+
 #### Packaging
 
 - ` dotnet pack --configuration Release `
