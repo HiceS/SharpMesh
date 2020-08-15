@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+// using System.Threading.Tasks;
 using SharpMesh.Data;
 
 namespace SharpMesh.Decomposer.Voxel
@@ -33,6 +33,7 @@ namespace SharpMesh.Decomposer.Voxel
         /// Or just 1 it really doesn't matter much.
         /// </summary>
         /// <returns></returns>
+        /*
         private static async Task<DecomposerResult> Compute(Mesh<float> mesh, VoxelOptions options)
         {
             mesh.Vertices[0].X += 1.0f;
@@ -45,6 +46,7 @@ namespace SharpMesh.Decomposer.Voxel
             
             return new DecomposerResult();
         }
+        */
 
         /// <summary>
         /// This is the synchronous section of the compute.
@@ -67,6 +69,17 @@ namespace SharpMesh.Decomposer.Voxel
                 Console.WriteLine($"\t -Bounds: {bounds}");
             }
 
+            var res_x = Math.Abs(bounds.min_X) + bounds.max_X;
+            Console.WriteLine($"X resolution: {res_x}");
+            
+            var res_y = Math.Abs(bounds.min_Y) + bounds.max_Y;
+            Console.WriteLine($"Y resolution: {res_y}");
+            
+            var res_z = Math.Abs(bounds.min_Z) + bounds.max_Z;
+            Console.WriteLine($"Z resolution: {res_z}");
+            
+            
+
             // test for now
             var result = new DecomposerResult();
 
@@ -74,7 +87,7 @@ namespace SharpMesh.Decomposer.Voxel
 
             
             // do the maths and then add each mesh like so.
-            result.Mesh.Add(new BoxMesh(new Vector(0, 2, 0), size: 2));
+            result.Mesh.Add(new BoxMesh(new Vector(0, 2, 0), size: res_x / 2));
             
             // default to size 1
             result.Mesh.Add(new BoxMesh(new Vector(1, 2, 0)));
@@ -85,6 +98,7 @@ namespace SharpMesh.Decomposer.Voxel
             return result;
         }
 
+        /*
         public override Task<DecomposerResult> RunAsync()
         {
             // This is what actually runs the Task assigned.
@@ -93,6 +107,7 @@ namespace SharpMesh.Decomposer.Voxel
 
             return Result;
         }
+        */
 
         public override DecomposerResult Run()
         {

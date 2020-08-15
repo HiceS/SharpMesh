@@ -13,7 +13,7 @@ namespace SharpMesh.Data
         /// </summary>
         /// <param name="size"></param>
         /// <param name="position"></param>
-        public BoxMesh(Vector position, int size = 1)
+        public BoxMesh(Vector position, float size = 1.0f)
         {
             // TODO: Create a set of math interfaces to Vector
             position.X *= size;

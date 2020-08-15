@@ -19,12 +19,12 @@ namespace SharpMesh.Decomposer
         /// The result from the finished simulation.
         /// Check against this for the various properties of a finished decomposition.
         /// </summary>
-        protected Task<DecomposerResult> Result;
+        // protected Task<DecomposerResult> Result;
 
         /// <summary>
         /// In order to cancel the compute.
         /// </summary>
-        protected readonly CancellationTokenSource CancellationTokenSource;
+        // protected readonly CancellationTokenSource CancellationTokenSource;
 
         /// <summary>
         /// Mesh assigned to this decomposition.
@@ -36,7 +36,7 @@ namespace SharpMesh.Decomposer
         /// Hopefully Awaitable.
         /// </summary>
         /// <returns></returns>
-        public abstract Task<DecomposerResult> RunAsync();
+        // public abstract Task<DecomposerResult> RunAsync();
         
         /// <summary>
         /// Runs the synchronous code that is blocking and returns a result.
@@ -50,7 +50,7 @@ namespace SharpMesh.Decomposer
         /// <param name="mesh"></param>
         protected Decomposer(Mesh<T> mesh)
         {
-            CancellationTokenSource = new CancellationTokenSource();
+            // CancellationTokenSource = new CancellationTokenSource();
             Mesh = mesh;
         }
 
@@ -59,7 +59,7 @@ namespace SharpMesh.Decomposer
         /// </summary>
         protected void Cancel()
         {
-            CancellationTokenSource.Cancel();
+            // CancellationTokenSource.Cancel();
         }
         
         // This doesn't force an override anyway so im getting rid of it, it also does a boxing allocation which restricts the options parameter.

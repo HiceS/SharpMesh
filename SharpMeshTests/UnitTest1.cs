@@ -75,7 +75,7 @@ namespace SharpMeshTests
 
             var options = new VoxelOptions(precision: 1.0f, timeout: 20, voxelShape: BaseShape.Box);
 
-            var decompTask = new VoxelDecomposer(mesh: mesh, options).RunAsync();
+            // var decompTask = new VoxelDecomposer(mesh: mesh, options).RunAsync();
 
             // Test Properties
             mesh.Vertices.Add(v1);
