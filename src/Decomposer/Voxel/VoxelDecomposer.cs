@@ -68,16 +68,16 @@ namespace SharpMesh.Decomposer.Voxel
             }
 
             // test for now
-            var result = new DecomposerResult
+            var result = new DecomposerResult();
+            
+            result.Mesh = new List<Mesh<float>>
             {
-                Mesh = new List<Mesh<float>>
-                {
-                    new BoxMesh(new Vector(0, 2, 0)),
-                    new BoxMesh(new Vector(0, 3, 0)),
-                    new BoxMesh(new Vector(0, 4, 0)),
-                },
-                FinishedWithError = false
+                new BoxMesh(new Vector(0, 2, 0)),
+                new BoxMesh(new Vector(0, 3, 0)),
+                new BoxMesh(new Vector(0, 4, 0)),
             };
+
+            result.FinishedWithError = false;
 
             return result;
         }
