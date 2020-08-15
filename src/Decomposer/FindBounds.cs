@@ -3,20 +3,55 @@ using SharpMesh.Data;
 
 namespace SharpMesh.Decomposer
 {
+    /// <summary>
+    /// Boundary sizing
+    ///
+    /// These really should be Vector2
+    /// </summary>
     public class Bounds
     {
+        /// <summary>
+        /// Max X value
+        /// </summary>
         public float max_X;
+        
+        /// <summary>
+        /// Min X value
+        /// </summary>
         public float min_X;
+        
+        /// <summary>
+        /// Max Y value
+        /// </summary>
         public float max_Y;
+        
+        /// <summary>
+        /// Min Y value
+        /// </summary>
         public float min_Y;
+        
+        /// <summary>
+        /// Max Z value
+        /// </summary>
         public float max_Z;
+        
+        /// <summary>
+        /// Min Z value
+        /// </summary>
         public float min_Z;
 
-        public Bounds()
+        public override string ToString()
         {
+            var str = "Bounds:\n";
+            str += $"\t- max X: {max_X}\n";
+            str += $"\t- min X: {min_X}\n";
+            str += $"\t- max Y: {max_Y}\n";
+            str += $"\t- min Y: {min_Y}\n";
+            str += $"\t- max Z: {max_Z}\n";
+            str += $"\t- min Z: {min_Z}\n";
             
+            return str;
         }
-
     }
     
     
