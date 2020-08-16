@@ -133,78 +133,26 @@ namespace SharpMesh.Decomposer.Voxel
 
 
             //Decompose mesh one side at a time
-            for (int i = 1; i <= 6; i++) {
+            //for (int i = 1; i <= 6; i++) {
 				// i = a side of the mesh
 				// type float
 				int a1, a2, b1, b2, c1, c2;
 				// 1 represents starting point for x,y,z
 				// 2 represents the ending point
 				int x, y, z;
-				if(i == 1){
-					a1 = min_X;
-					a2 = max_X;
-					b1 = min_Y;
-					b2 = max_Y;
-					c1 = min_Z;
-					c2 = max_Z;
-				}else if(i == 2){
-					a1 = max_Y;
-					a2 = min_Y;
-					b1 = min_X;
-					b2 = max_X;
-					c1 = min_Z;
-					c2 = max_Z;
-				}else if(i == 3){
-					a1 = max_X;
-					a2 = min_X;
-					b1 = max_Y;
-					b2 = min_Y;
-					c1 = min_Z;
-					c2 = max_Z;
-				}else if(i == 4){
-					a1 = min_Y;
-					a2 = max_Y;
-					b1 = max_X;
-					b2 = min_X;
-					c1 = min_Z;
-					c2 = max_Z;
-				}else if(i == 5){
-					a1 = min_Z;
-					a2 = max_Z;
-					b1 = min_X;
-					b2 = max_X;
-					c1 = min_Y;
-					c2 = max_Y;
-				}else{
-					a1 = max_Z;
-					a2 = min_Z;
-					b1 = min_X;
-					b2 = max_X;
-					c1 = max_Y;
-					c2 = min_Y;
-				}
-
+				//if(i == 1){
+				a1 = min_X;
+				a2 = max_X;
+				b1 = min_Y;
+				b2 = max_Y;
+				c1 = min_Z;
+				c2 = max_Z;
 				for (var c = c1; c <= c2; c++) {
 					for (var b = b1; b <= b2; b++) {
 						for (var a = a1; a <= a2; a++) {
-                            if (i == 1 || i == 3)
-                            {
-                                x = a;
-                                y = b;
-                                z = c;
-                            }
-                            else if (i == 2 || i == 4)
-                            {
-                                x = b;
-                                y = a;
-                                z = c;
-                            }
-                            else
-                            {
-                                x = b;
-                                y = c;
-                                z = a;
-                            }
+                            x = a;
+                            y = b;
+                            z = c;
                             var found = false;
 							foreach (BoxMesh m in workingList) {
 								// TODO clean up later
@@ -230,7 +178,198 @@ namespace SharpMesh.Decomposer.Voxel
 						}
 					}
 				}
-			}
+				//}else if(i == 2){
+				a1 = max_Y;
+				a2 = min_Y;
+				b1 = min_X;
+				b2 = max_X;
+				c1 = min_Z;
+				c2 = max_Z;
+				for (var c = c1; c <= c2; c++) {
+					for (var b = b1; b <= b2; b++) {
+						for (var a = a1; a >= a2; a--) {
+                            x = b;
+                            y = a;
+                            z = c;
+                            var found = false;
+							foreach (BoxMesh m in workingList) {
+								// TODO clean up later
+								if((int)m.position.X == x && (int)m.position.Y == y && (int)m.position.Z == z) {
+									foreach (var vert in mesh.Vertices){
+										if((vert.X * resolution) >= x && (vert.X * resolution) < (x + 1)){
+											if((vert.Y * resolution) >= y && (vert.Y * resolution) < (y + 1)){
+												if((vert.Z * resolution) >= z && (vert.Z * resolution) < (z + 1)){
+													found = true;
+													break;
+												}
+											}
+										}
+									}
+                                    if (found == false) {
+                                        m.stagedForDeletion = true;
+                                    }
+									break;
+								}
+							}
+                            if (found)
+                                break;
+						}
+					}
+				}
+				//}else if(i == 3){
+				a1 = max_X;
+				a2 = min_X;
+				b1 = max_Y;
+				b2 = min_Y;
+				c1 = min_Z;
+				c2 = max_Z;
+				for (var c = c1; c <= c2; c++) {
+					for (var b = b1; b >= b2; b--) {
+						for (var a = a1; a >= a2; a--) {
+                            x = a;
+                            y = b;
+                            z = c;
+                            var found = false;
+							foreach (BoxMesh m in workingList) {
+								// TODO clean up later
+								if((int)m.position.X == x && (int)m.position.Y == y && (int)m.position.Z == z) {
+									foreach (var vert in mesh.Vertices){
+										if((vert.X * resolution) >= x && (vert.X * resolution) < (x + 1)){
+											if((vert.Y * resolution) >= y && (vert.Y * resolution) < (y + 1)){
+												if((vert.Z * resolution) >= z && (vert.Z * resolution) < (z + 1)){
+													found = true;
+													break;
+												}
+											}
+										}
+									}
+                                    if (found == false) {
+                                        m.stagedForDeletion = true;
+                                    }
+									break;
+								}
+							}
+                            if (found)
+                                break;
+						}
+					}
+				}
+				//}else if(i == 4){
+				a1 = min_Y;
+				a2 = max_Y;
+				b1 = max_X;
+				b2 = min_X;
+				c1 = min_Z;
+				c2 = max_Z;
+				for (var c = c1; c <= c2; c++) {
+					for (var b = b1; b >= b2; b--) {
+						for (var a = a1; a <= a2; a++) {
+                            x = b;
+                            y = a;
+                            z = c;
+                            var found = false;
+							foreach (BoxMesh m in workingList) {
+								// TODO clean up later
+								if((int)m.position.X == x && (int)m.position.Y == y && (int)m.position.Z == z) {
+									foreach (var vert in mesh.Vertices){
+										if((vert.X * resolution) >= x && (vert.X * resolution) < (x + 1)){
+											if((vert.Y * resolution) >= y && (vert.Y * resolution) < (y + 1)){
+												if((vert.Z * resolution) >= z && (vert.Z * resolution) < (z + 1)){
+													found = true;
+													break;
+												}
+											}
+										}
+									}
+                                    if (found == false) {
+                                        m.stagedForDeletion = true;
+                                    }
+									break;
+								}
+							}
+                            if (found)
+                                break;
+						}
+					}
+				}
+				//}else if(i == 5){
+				a1 = min_Z;
+				a2 = max_Z;
+				b1 = min_X;
+				b2 = max_X;
+				c1 = min_Y;
+				c2 = max_Y;
+				for (var c = c1; c <= c2; c++) {
+					for (var b = b1; b <= b2; b++) {
+						for (var a = a1; a <= a2; a++) {
+                            x = b;
+                            y = c;
+                            z = a;
+                            var found = false;
+							foreach (BoxMesh m in workingList) {
+								// TODO clean up later
+								if((int)m.position.X == x && (int)m.position.Y == y && (int)m.position.Z == z) {
+									foreach (var vert in mesh.Vertices){
+										if((vert.X * resolution) >= x && (vert.X * resolution) < (x + 1)){
+											if((vert.Y * resolution) >= y && (vert.Y * resolution) < (y + 1)){
+												if((vert.Z * resolution) >= z && (vert.Z * resolution) < (z + 1)){
+													found = true;
+													break;
+												}
+											}
+										}
+									}
+                                    if (found == false) {
+                                        m.stagedForDeletion = true;
+                                    }
+									break;
+								}
+							}
+                            if (found)
+                                break;
+						}
+					}
+				}
+				//}else{
+				a1 = max_Z;
+				a2 = min_Z;
+				b1 = min_X;
+				b2 = max_X;
+				c1 = max_Y;
+				c2 = min_Y;
+				//}
+				for (var c = c1; c >= c2; c--) {
+					for (var b = b1; b <= b2; b++) {
+						for (var a = a1; a >= a2; a--) {
+                            x = b;
+                            y = c;
+                            z = a;
+                            var found = false;
+							foreach (BoxMesh m in workingList) {
+								// TODO clean up later
+								if((int)m.position.X == x && (int)m.position.Y == y && (int)m.position.Z == z) {
+									foreach (var vert in mesh.Vertices){
+										if((vert.X * resolution) >= x && (vert.X * resolution) < (x + 1)){
+											if((vert.Y * resolution) >= y && (vert.Y * resolution) < (y + 1)){
+												if((vert.Z * resolution) >= z && (vert.Z * resolution) < (z + 1)){
+													found = true;
+													break;
+												}
+											}
+										}
+									}
+                                    if (found == false) {
+                                        m.stagedForDeletion = true;
+                                    }
+									break;
+								}
+							}
+                            if (found)
+                                break;
+						}
+					}
+				}
+			//}
 
 			//scale back down
 			result.Mesh = new List<Mesh<float>>();
