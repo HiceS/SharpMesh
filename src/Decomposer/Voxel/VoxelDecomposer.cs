@@ -219,14 +219,14 @@ namespace SharpMesh.Decomposer.Voxel
 											}
 										}
 									}
+                                    if (found == false) {
+                                        m.stagedForDeletion = true;
+                                    }
+									break;
 								}
-                                if(found == false){
-                                    // delete BoxMesh;
-                                    // TODO how to delete
-                                    m.stagedForDeletion = true;
-                                } else
-                                    break;
 							}
+                            if (found)
+                                break;
 						}
 					}
 				}
