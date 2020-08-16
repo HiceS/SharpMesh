@@ -121,12 +121,12 @@ namespace SharpMesh.Decomposer.Voxel
 			*/
 			var workingList = new List<Mesh<float>>();
 
-            for(var x = min_X; x <= max_X; x++) {
-                for(var y = min_Y; y <= max_Y; y++) {
-                    for(var z = min_Z; z <= max_Z; z++) {
+            for(var x_ = min_X; x_ <= max_X; x_++) {
+                for(var y_ = min_Y; y_ <= max_Y; y_++) {
+                    for(var z_ = min_Z; z_ <= max_Z; z_++) {
 						// result.Mesh.Add(new BoxMesh(new Data.Vector(x + (0.5f * options.Size), y + (0.5f * options.Size), z + (0.5f * options.Size)), 1.0f));
 						// result.Mesh.Add(new BoxMesh(new Data.Vector(x, y, z), 1.0f));
-						workingList.Add(new BoxMesh(new Data.Vector(x, y, z), 1.0f));
+						workingList.Add(new BoxMesh(new Data.Vector(x_, y_, z_), 1.0f));
                     }
                 }
             }

@@ -57,7 +57,9 @@ namespace SharpMesh.Data
 
             int[] tri =
             {
+                // tri 1 - Vertices[0], Vertices[2], Vertices[1]
                 0, 2, 1,
+                // tri 1 - Vertices[0], Vertices[3], Vertices[2]
                 0, 3, 2,
                 2, 3, 4,
                 2, 4, 5,
