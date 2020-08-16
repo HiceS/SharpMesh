@@ -8,18 +8,27 @@ namespace SharpMesh.Data
     /// </summary>
     public class BoxMesh : Mesh<float>
     {
+
+        public Vector position;
+        public float size;
+        public bool stagedForDeletion = false;
         /// <summary>
         /// Constructs a Box based off specific variables.
         /// </summary>
         /// <param name="size"></param>
         /// <param name="position"></param>
-        public BoxMesh(Vector position, float size = 1.0f)
+        public BoxMesh(Vector position_, float size_ = 1.0f)
         {
+            position = position_;
+            size = size_;
             // TODO: Create a set of math interfaces to Vector
+            /*
             position.X *= size;
             position.Y *= size;
             position.Z *= size;
+            */
 
+            /*
             Vector[] vert =
             {
                 new Vector(0.0f + position.X, 0.0f + position.Y, 0.0f + position.Z),
@@ -30,6 +39,18 @@ namespace SharpMesh.Data
                 new Vector(1.0f + position.X, 1.0f + position.Y, 1.0f + position.Z),
                 new Vector(1.0f + position.X, 0.0f + position.Y, 1.0f + position.Z),
                 new Vector(0.0f + position.X, 0.0f + position.Y, 1.0f + position.Z)
+            };
+            */
+            Vector[] vert =
+            {
+                new Vector((0.0f * size) + position.X, (0.0f * size) + position.Y, (0.0f * size) + position.Z),
+                new Vector((1.0f * size) + position.X, (0.0f * size) + position.Y, (0.0f * size) + position.Z),
+                new Vector((1.0f * size) + position.X, (1.0f * size) + position.Y, (0.0f * size) + position.Z),
+                new Vector((0.0f * size) + position.X, (1.0f * size) + position.Y, (0.0f * size) + position.Z),
+                new Vector((0.0f * size) + position.X, (1.0f * size) + position.Y, (1.0f * size) + position.Z),
+                new Vector((1.0f * size) + position.X, (1.0f * size) + position.Y, (1.0f * size) + position.Z),
+                new Vector((1.0f * size) + position.X, (0.0f * size) + position.Y, (1.0f * size) + position.Z),
+                new Vector((0.0f * size) + position.X, (0.0f * size) + position.Y, (1.0f * size) + position.Z)
             };
             
             Vertices = new List<Vector<float>>(vert);

@@ -14,7 +14,7 @@ namespace SharpMesh.Decomposer.Voxel
         /// <summary>
         /// Size of the individual elements.
         /// </summary>
-        public int Size { get; } 
+        public int Resolution { get; } 
 
         public override string ToString()
         {
@@ -26,12 +26,12 @@ namespace SharpMesh.Decomposer.Voxel
         /// </summary>
         /// <param name="precision">Accuracy</param>
         /// <param name="debug"></param>
-        /// <param name="size">Element Sizing</param>
+        /// <param name="resolution">Element Sizing</param>
         /// <param name="timeout"></param>
         /// <param name="voxelShape">Shape of the Voxel</param>
-        public VoxelOptions(float precision, bool debug = false, int size = 1, int timeout = 0, BaseShape voxelShape = BaseShape.Box) : base(precision, timeout, debug)
+        public VoxelOptions(float precision, bool debug = false, int resolution = 10, int timeout = 0, BaseShape voxelShape = BaseShape.Box) : base(precision, timeout, debug)
         {
-            Size = size;
+            Resolution = resolution;
             VoxelShape = voxelShape;
         }
     }

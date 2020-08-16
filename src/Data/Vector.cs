@@ -173,6 +173,14 @@ namespace SharpMesh.Data
         {
             return $"Vector({this.Order})\n\t- X: {X}\n\t- Y: {Y}\n\t- Z: {Z}";
         }
+
+        // TODO how to operator overload generics?
+        /*
+        public static Vector<T> operator /(Vector<T> v1, Vector<T> v2)
+        {
+            return Vector<T>(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z);
+        }
+        */
     }
 
     /// <summary>
